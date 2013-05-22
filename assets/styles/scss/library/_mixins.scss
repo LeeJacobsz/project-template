@@ -72,3 +72,39 @@ sass mixins
 		border-right: $size solid $color;
 	}
 }
+
+// arrows for buttons (and buttons only)
+// these arrows are designed to be used purely with buttons. the top and bottom arrows both
+// assume that they want to be centered, you'll need to tweak position to get other behaviour.
+@mixin button-arrow($direction, $color, $size) {
+	content: "";
+	position: absolute;
+
+	@if $direction == right {
+		top: 25%;
+		right: $size;
+		border-left: $size solid $color;
+		border-top: $size solid #c01933;
+		border-bottom: $size solid #c01933;
+	} @else if $direction == left {
+		top: 0;
+		left: -$size;
+		border-right: $size solid $color;
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+	} @else if $direction == down {
+		left: 50%;
+		bottom: -$size;
+		margin-left: -$size;
+		border-top: $size solid $color;
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+	} @else if $direction == up {
+		left: 50%;
+		top: -$size;
+		margin-left: -$size;
+		border-bottom: $size solid $color;
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+	}
+}
