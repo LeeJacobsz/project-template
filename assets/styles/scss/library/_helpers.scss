@@ -34,15 +34,3 @@ hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin:
 // apply a natural box layout model to all elements
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-// old browser warning style
-.chromeframe {
-  background: $black;
-	color: $white;
-	padding: 10px;
-	text-align: center;
-	margin: 0;
-	/* These three lines are for transparency in all browsers. */
- 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-	filter: alpha(opacity=70);
-	opacity:.7;
-}
