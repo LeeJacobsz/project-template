@@ -108,3 +108,59 @@ sass mixins
 		border-right: $size solid transparent;
 	}
 }
+
+// a navigational arrow on anchor button
+// usually to show active state
+// inside &:after or &:before
+// usage @include active-arrow(up OR down, arrow-color, optional-size, optional-position);
+@mixin active-arrow($direction, $background, $size:7px, $position:50%) {
+
+	top: 100%;
+	width: 0;
+	height: 0;
+	content: " ";
+	position: absolute;
+	pointer-events: none;
+	border: solid transparent;
+	left: $position; // 50% for center
+	border-width: $size;
+	margin-left: -$size;
+	@content;
+
+	@if $direction == down {
+		border-top-color: $background;
+	}@else if $direction == up {
+		border-bottom-color: $background;
+	}
+}
+
+// drop downs for example custom styled form drop downs
+// usage @include dropdown-arrow
+@mixin dropdown-arrow($size, $color) {
+
+	&:after {
+		content:"";
+		width: 0;
+		height: 0;
+		top: 50%;
+		right: 15px;
+		margin-top: -($size/2);
+		position: absolute;
+		border-style: solid;
+		border-width: $size $size 0 $size;
+		border-color: $color transparent;
+	}
+}
+
+// usage:
+// $gradient:#000, #fff
+// @include gradient($gradient);
+@mixin gradient($gradient) {
+	background: mix( nth($gradient,1), nth($gradient,2) );
+	background: -moz-linear-gradient(top,  nth($gradient,1) 0%, nth($gradient,2) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,nth($gradient,1)), color-stop(100%,nth($gradient,2)));
+	background: -webkit-linear-gradient(top,  nth($gradient,1) 0%,nth($gradient,2) 100%);
+	background: -o-linear-gradient(top,  nth($gradient,1) 0%,nth($gradient,2) 100%);
+	background: -ms-linear-gradient(top,  nth($gradient,1) 0%,nth($gradient,2) 100%);
+	background: linear-gradient(to bottom,  nth($gradient,1) 0%,nth($gradient,2) 100%);
+}

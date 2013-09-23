@@ -2,7 +2,10 @@
 typography
 ---------------------------------------------------------- */
 body {
-	font: normal 16px/1.4em Helvetica, Arial, sans-serif;
+	font: normal #{$font-size}/#{$line-height} $font-stack;
+	font-size: em(16px); // function defined in functions.scss
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
 }
 
 h1 {

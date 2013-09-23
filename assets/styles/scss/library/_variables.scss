@@ -8,3 +8,7 @@ $white: #ffffff;
 /* ----------------------------------------------------------
 variables
 ---------------------------------------------------------- */
+$font-size: 16px;
+$line-height: 1.4em;
+//usage: font: #{$font-size}/#{$line-height};
+$font-stack: Helvetica, Arial, sans-serif;
