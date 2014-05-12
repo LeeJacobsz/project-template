@@ -8,9 +8,27 @@ $(document).ready(function() {
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 100);
 	});
 
+	// center content
+	//$(".centered").center(true);
+
 });
 
 // functions and plugins can go below here for speed, instead of separate and slow script files.
+
+// center content
+jQuery.fn.center = function(parent) {
+	if (parent) {
+		parent = this.parent();
+	} else {
+		parent = window;
+	}
+	this.css({
+		"position": "absolute",
+		"top": ((($(parent).height() - this.outerHeight()) / 2) + $(parent).scrollTop() + "px"),
+		"left": ((($(parent).width() - this.outerWidth()) / 2) + $(parent).scrollLeft() + "px")
+	});
+	return this;
+}
 
 // input placeholder for ie
 // use along with modernizer
